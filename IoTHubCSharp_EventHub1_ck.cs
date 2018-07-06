@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.ServiceBus;
 
 namespace FunctionAppRanbir
 {
     public static class IoTHubCSharp_EventHub1_ck
     {
         [FunctionName("IoTHubCSharp_EventHub1_ck")]
-        public static void Run(string myIoTHubMessage, TraceWriter log)
+        public static void Run([EventHubTrigger("samples-workitems", Connection = "")]string myIoTHubMessage, TraceWriter log)
         {
             log.Info($"1First Function App Method Start");
             log.Info($"C# IoT Hub trigger function processed a message: {myIoTHubMessage}");
