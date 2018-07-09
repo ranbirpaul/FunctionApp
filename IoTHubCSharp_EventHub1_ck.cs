@@ -11,9 +11,9 @@ namespace FunctionAppRanbir
 {
     public static class IoTHubCSharp_EventHub1_ck
     {
-        //static const string iothubendpoint = ConfigurationManager.AppSettings["iothubdcalh_events_IOTHUB"];
+        //static const string iothubendpoint = ConfigurationManager.AppSettings["iothub-connection"];
         [FunctionName("IoTHubCSharp_EventHub1_ck")]
-        public static void Run([EventHubTrigger("samples-workitems", Connection = "iothubdcalh_events_IOTHUB")]string myIoTHubMessage, TraceWriter log)
+        public static void Run([EventHubTrigger("samples-workitems", Connection = "iothub-connection")]string myIoTHubMessage, TraceWriter log)
         {
             log.Info($"1First Function App Method Start");
             log.Info($"C# IoT Hub trigger function processed a message: {myIoTHubMessage}");
